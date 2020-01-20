@@ -33,7 +33,11 @@ class LoginpageState extends State<LoginPage> with SingleTickerProviderStateMixi
 
     final loginkey= GlobalKey<FormState>();
 
+    var value="LOGIN";
 
+    final TextEditingController email=new TextEditingController();
+    final TextEditingController pass=new TextEditingController();
+    
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +80,7 @@ class LoginpageState extends State<LoginPage> with SingleTickerProviderStateMixi
                         crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
                         new TextFormField(
-
+                          controller: email,
                           validator: (value){
                             if(value.isEmpty)
                             {
@@ -94,7 +98,8 @@ class LoginpageState extends State<LoginPage> with SingleTickerProviderStateMixi
                         ),
 
                         new TextFormField(
-
+                        
+                          controller: pass,
                           validator: (value) {
                             if(value.isEmpty)
                             {
@@ -119,7 +124,7 @@ class LoginpageState extends State<LoginPage> with SingleTickerProviderStateMixi
                            minWidth: 60.0,
                            color: Colors.teal,
                            textColor: Colors.white,
-                           child: Text("LOGIN"),  
+                           child: Text("$value"),  
                            onPressed: ()=>{
 
                       
