@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutterdemo/LoginPage.dart';
 
+import 'Chat/ChatScreen.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -63,6 +65,18 @@ class _HomePageState extends State<HomePage> {
                 color: Colors.white
               ),),
               onPressed: changedata,
+              color: Colors.red,
+            ),
+             new RaisedButton(
+              child: Text("Open ChatScreen",style: TextStyle(
+                color: Colors.white
+              ),),
+              onPressed: ()=>{
+                 Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => ChatScreen()),
+                                )
+              },
               color: Colors.red,
             )
           ],
