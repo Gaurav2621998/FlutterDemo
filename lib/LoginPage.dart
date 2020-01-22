@@ -17,7 +17,7 @@ class LoginpageState extends State<LoginPage> with SingleTickerProviderStateMixi
       super.initState();
 
       animationController=new AnimationController(
-        vsync: this,duration: new Duration(milliseconds: 100)
+        vsync: this,duration: new Duration(milliseconds: 50)
       );
       iconAnimation=new CurvedAnimation(
         parent: animationController,
@@ -58,7 +58,7 @@ class LoginpageState extends State<LoginPage> with SingleTickerProviderStateMixi
           children: <Widget>[
 
               new FlutterLogo(
-                size: iconAnimation.value * 120,
+                size: iconAnimation.value * 150,
               ),
               new Form(
                 key: loginkey,

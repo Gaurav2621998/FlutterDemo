@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterdemo/Chat/ChatMessage.dart';
 
 class ChatScreen extends StatefulWidget {
   @override
@@ -9,10 +10,18 @@ class _ChatScreenState extends State<ChatScreen> {
 
 
   final TextEditingController textEditingController=new TextEditingController();
+  List<ChatMessage> messageslist = <ChatMessage>[];
 
   void handelSubmit(String text)
   {
       textEditingController.clear();
+      ChatMessage chatMessage=new ChatMessage(
+        msg: text,
+      );
+      setState(() {
+        messageslist.insert(0,chatMessage);
+      });
+
   }
 
   @override
@@ -22,8 +31,36 @@ class _ChatScreenState extends State<ChatScreen> {
           title: Text("ChatScreen"),
           backgroundColor: Colors.blue,
         ),
-        body: _textComposerWidget(),
+        body: new Column(
+          children: <Widget>[
+            new Flexible(
+              child: new ListView.builder(
+                padding: new EdgeInsets.all(8.0),
+                reverse: true,
+                itemBuilder: (_,int index)=>messageslist[index],
+                itemCount: messageslist.length,
+
+              ),
+            ),
+            new Divider(height: 1.0,),
+            new Container(
+              child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: <Widget>[
+             Container(
+               height: 50.0,
+               child: _textComposerWidget())
+          ],
+        ),
+            )
+          ],
+        )
     );
+
+
+    
+
+          
   }
 
   Widget _textComposerWidget(){
