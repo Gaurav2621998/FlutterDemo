@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutterdemo/Chat/ChatActivity.dart';
+import 'package:flutterdemo/Crypto/CryptoHome.dart';
 import 'package:flutterdemo/LoginPage.dart';
+import 'package:flutterdemo/MusicPlayer/MusicHome.dart';
 
 import 'Chat/ChatScreen.dart';
 
@@ -79,7 +81,33 @@ class _HomePageState extends State<HomePage> {
                                 )
               },
               color: Colors.red,
-            )
+            ),
+            new RaisedButton(
+              child: Text("Open Cryptocurrency",style: TextStyle(
+                color: Colors.white
+              ),),
+              onPressed: ()=>{
+                 Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => CryptoHome()),
+                                )
+              },
+              color: Colors.red,
+            ),
+            new RaisedButton(
+              child: Text("Open Music Player",style: TextStyle(
+                color: Colors.white
+              ),),
+              onPressed: ()=>{
+                 Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => MusicHome()),
+                                )
+              },
+              color: Colors.red,
+            ),//for Music Player
+            
+
           ],
         ),
       ),
